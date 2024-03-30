@@ -58,4 +58,37 @@ class Test extends Component {
   }
 }
 
-export default App;
+class AddRemove extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      valor: 0,
+    };
+    this.somar = this.somar.bind(this);
+    this.subtrair = this.subtrair.bind(this);
+  }
+
+  somar() {
+    let state = this.state;
+    state.valor += 1;
+    this.setState(state);
+  }
+
+  subtrair() {
+    let state = this.state;
+    state.valor -= 1;
+    this.setState(state);
+  }
+
+  render() {
+    return (
+      <div>
+        <div>Valor: {this.state.valor}</div>
+        <button onClick={this.somar}>Adicionar 1</button>
+        <button onClick={this.subtrair}>Subtrair 1</button>
+      </div>
+    );
+  }
+}
+
+export default AddRemove;
